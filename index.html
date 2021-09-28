@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/calculator.css">
+    <script src="js/calculator.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100&display=swap" rel="stylesheet">
+    <title>Calculadora Web</title>
+</head>
+<body>
+
+  <h1>"Calculadora Web con historial"</h1>
+  <hr>
+
+  <div class="container">
+      <div class="item-flex">
+          <select id="operator" class="box">
+              <option value="+">Sumar</option>
+              <option value="-">Restar</option>
+              <option value="*">Multiplicar</option>
+              <option value="/">Dividir</option>
+                 
+          </select> <br>
+          <input type="number"  id="number1" class="box" placeholder="Por favor introduzca un numero"> <br>
+          <input type="number"  id="number2" class="box" placeholder="Por favor introduzca un numero"> <br>
+       <button onclick="RealizarOperacion()" class="btn" >Realizar Operacion</button>
+      </div>
+      <div class="item-flex">
+          
+        <table id="table">  </table>
+
+            <script>
+                let table = document.getElementById('table');
+
+                function tableHead(t) {
+                   let head = t.createTHead();
+                   let opciones = ["Primer Numero","Operador","Segundo Numero","Resultado"];
+                   let row = head.insertRow();
+
+                   for (let item of opciones) {
+                    let th = document.createElement("th");
+                    let text = document.createTextNode(item);
+
+                    th.appendChild(text);
+                    row.appendChild(th);
+
+                   }
+                }
+
+
+         function tableBody(t){
+                let body = t.createTBody();
+                let datos = JSON.parse(localStorage.getItem("historial"));
+
+                for(let item of datos){
+                    let row = body.insertRow();
+
+
+                    for(let key in item){
+                       let cell = row.insertCell();
+                       cell.appendChild(document.createTextNode(item[key]));
+
+
+                    }
+                }
+         }
+
+       tableHead(table);
+       tableBody(table);
+
+          function borrarHistorial(){
+             localStorage.clear();
+             location.reload();
+
+  }
+            </script>
+
+            <button onclick="borrarHistorial()" class="btn-borrar">Borrar historial</button>
+       
+      </div>
+  </div>
+
+</body>
+</html>

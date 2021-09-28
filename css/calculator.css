@@ -1,0 +1,65 @@
+body {
+    background-color: #f2f2f2;
+    font-family: sans-serif;
+    color: black;
+}
+
+.container {
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+}
+
+.box{
+    width: 200px;
+    padding: 7px;
+    margin: 5px;
+}
+
+.item-flex{
+    margin-top: 20px;
+    width: 44%;
+}
+
+.btn {
+    padding: 20px;
+    color: white;
+    border: none;
+    background-color: #24A5FA;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.btn-borrar {
+    background-color: #F73838;
+    margin-top: 2px;
+    width: 100%;
+}
+
+table {
+    text-align: center;
+    background: white;
+    width: 100%;
+    border-radius: 10px;
+}
+
+table th{
+    padding: 10px;
+    background-color:#8C24FA;
+    color: white;
+}
+
+h1, hr{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+
+}
+
+h1{
+    padding: 30px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 50px;
+}
